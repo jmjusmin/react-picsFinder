@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'semantic-ui-react';
 
-function SearchBar() {
+function SearchBar(props) {
   //set state
   const [term, setTerm] = useState('');
 
@@ -11,7 +11,7 @@ function SearchBar() {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(term);
+    props.handleSearchSubmit(term);
   };
 
   return (
