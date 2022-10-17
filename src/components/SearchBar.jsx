@@ -11,7 +11,7 @@ function SearchBar(props) {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    props.handleSearchSubmit(term);
+    props.onSubmit(term);
   };
 
   return (
