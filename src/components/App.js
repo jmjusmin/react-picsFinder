@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Logo from './Logo.jsx';
 import Unsplash from '../api/Unsplash.jsx';
 import SearchBar from './SearchBar';
 import ImageList from './ImageList.jsx';
@@ -28,12 +29,32 @@ function App() {
     setImg(response.data.results);
   };
 
-  return (
-    <div className="ui container" style={{ marginTop: '20px' }}>
-      <SearchBar onSubmit={handleSearchSubmit} />
-      <ImageList images={img} />
-    </div>
-  );
+  const renderContent = () => {
+    if (img.length === 0) {
+      return (
+        <div className="ui container result-none" style={{ marginTop: '20px' }}>
+          <Logo styleLogo={'result-none-logo'} />
+          <SearchBar
+            onSubmit={handleSearchSubmit}
+            styleSearchBar={'result-none-search'}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div className="ui container result" style={{ marginTop: '20px' }}>
+          <Logo styleLogo={'result-logo'} />
+          <SearchBar
+            onSubmit={handleSearchSubmit}
+            styleSearchBar={'result-search'}
+          />
+          <ImageList images={img} />
+        </div>
+      );
+    }
+  };
+
+  return renderContent();
 }
 
 export default App;

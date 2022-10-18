@@ -15,7 +15,7 @@ function SearchBar(props) {
   };
 
   return (
-    <Form onSubmit={handleFormSubmit}>
+    <Form onSubmit={handleFormSubmit} className={`${props.styleSearchBar}`}>
       <Form.Field>
         <Input
           size="large"
@@ -25,7 +25,6 @@ function SearchBar(props) {
           onChange={handleInputChange}
           value={term}
         />
-        {/* <i className={`search icon`}></i> */}
       </Form.Field>
     </Form>
   );
