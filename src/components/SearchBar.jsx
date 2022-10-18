@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form } from 'semantic-ui-react';
+import { Form, Input } from 'semantic-ui-react';
 
 function SearchBar(props) {
   //set state
@@ -17,14 +17,15 @@ function SearchBar(props) {
   return (
     <Form onSubmit={handleFormSubmit}>
       <Form.Field>
-        <label>Image serach</label>
-        <input
+        <Input
+          size="large"
+          icon="search"
           type="text"
           //   onChange={(e) => console.log(e.target.value)}
           onChange={handleInputChange}
           value={term}
-          placeholder="Start searching ..."
         />
+        {/* <i className={`search icon`}></i> */}
       </Form.Field>
     </Form>
   );

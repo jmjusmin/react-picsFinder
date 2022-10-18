@@ -6,6 +6,7 @@ import ImageList from './ImageList.jsx';
 function App() {
   //set state of empty array
   const [img, setImg] = useState([]);
+  const apiKey = 'Client-ID ' + process.env.REACT_APP_API_KEY;
 
   const handleSearchSubmit = async (term) => {
     //call axios to make a request unplash api
@@ -17,7 +18,7 @@ function App() {
         query: term,
       },
       headers: {
-        Authorization: 'Client-ID 2pOv9dQBp3ANTuo-ClG4SSbML7cmUn2kig2M1yOMuA8',
+        Authorization: apiKey,
       },
     });
     //// 1. handle promise with .then()
